@@ -6,7 +6,7 @@ class View:
 
     @classmethod
     def get_number(cls):
-        user_number = input('Введите число: ')
+        user_number = input('Введите число (комплексное число в формате X+Yj): ')
         try:
             user_number = Fraction(user_number)
             return user_number
