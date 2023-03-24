@@ -6,18 +6,18 @@ class View:
 
     @classmethod
     def get_number(cls):
-        user_number = input('Введите число (комплексное число в формате X+Yj): ')
-        try:
-            user_number = Fraction(user_number)
-            return user_number
-
-        except ValueError:
+        while True:
+            user_number = input('Введите число (комплексное число в формате X+Yj): ')
             try:
-                isinstance(complex(user_number), complex)
-                return complex(user_number)
+                user_number = Fraction(user_number)
+                return user_number
+
             except ValueError:
-                print('Неверные данные, завершение работы')
-                sys.exit(0)
+                try:
+                    isinstance(complex(user_number), complex)
+                    return complex(user_number)
+                except ValueError:
+                    print('Неверные данные')
 
     @classmethod
     def get_operator(cls):
